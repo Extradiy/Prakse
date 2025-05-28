@@ -66,6 +66,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["profile_pic"])) {
         <input type="file" name="profile_pic" id="profile_pic" required>
         <input type="submit" value="Upload">
     </form>
-    <p><a href="dashboard.php">Back to Dashboard</a></p>
+    <p><a href="logged.php">Back to Dashboard</a></p>
 </body>
 </html>

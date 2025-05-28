@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errors["first_name"] = "Name is required";
   } else {
     $first_name = test_input($_POST["first_name"]);
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$first_name)) {
+    if (!preg_match("/^[\p{L}' -]*$/u", $first_name)) {
       $errors["first_name"] = "Only letters and white space allowed";
       }
     if(strlen($first_name) < 3){
@@ -22,7 +22,7 @@ if (empty($_POST["last_name"])) {
     $errors["last_name"] = "last_name is required";
   } else {
     $last_name = test_input($_POST["last_name"]);
-    if(!preg_match("/^[a-zA-Z-' ]*$/",$last_name)) {
+    if (!preg_match("/^[\p{L}' -]*$/u", $first_name)) {
       $errors["last_name"] = "Only letters and white space allowed";
     }
     if(strlen($last_name) < 3){
@@ -47,7 +47,7 @@ if(mysqli_num_rows($select)) {
     $errors["password"] = "Password is required";
   } else {
     $password = test_input($_POST["password"]);
-    if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,}$/', $password)) {
+    if(!preg_match('/^(?=.*\d)(?=.*\p{L}).{8,}$/u', $password)) {
       $errors["password"] = 'the password does not meet the requirements!';
     }
     if(strlen($password) < 8) {
