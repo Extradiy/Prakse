@@ -53,24 +53,32 @@ ob_end_flush();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <form action="" method="POST">
-            <div>
-                <label for="email">email:</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email" require>
-                <span class="error">* <?php echo $errors["email"] ?? '';?></span>
-            </div>
-            <div>
-                <label for="password">password:</label>
-                <input type="password" name="password" id="password" placeholder="Enter your password" require>
-                <span class="error">* <?php echo $errors["password"] ?? '';?></span>
-            </div>
-        <div>
-            <span class="error"><?php echo $errors["login"] ?? ""; ?></span>
-        </div>
-            <div>
-                <button type="submit">Login</button>
-            </div>
-        </form>
+<body class="bg-body">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="custom-card shadow-lg p-5 rounded-4">
+    <h2 class="text-center mb-4 fw-bold text-primary">Login</h2>
+    <form method="POST" action="">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="Enter your email" value="<?= htmlspecialchars($email ?? '') ?>">
+        <div class="error"><?= $errors["email"] ?? '' ?></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Enter your password">
+        <div class="error"><?= $errors["password"] ?? '' ?></div>
+      </div>
+
+      <div class="mb-3 text-danger text-center fw-semibold">
+        <?= $errors["login"] ?? '' ?>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3">Login</button>
+    </form>
+  </div>
+</div>
+
 </body>
 </html>

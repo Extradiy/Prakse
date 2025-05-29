@@ -42,3 +42,24 @@ button.btn-primary:hover {
   background-color: #3a54d2;
   border-color: #3a54d2;
 }
+
+/* style.css */
+
+body.bg-body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.bg-white {
+  border-right: 1px solid #dee2e6;
+}
+
+
+
+.card {
+  border-radius: 0.75rem;
+}
+
+.btn {
+  border-radius: 0.5rem;
+}
