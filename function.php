@@ -120,38 +120,46 @@ if ($result = mysqli_query($conn, "INSERT INTO users (username, last_name, email
         .error {color: #FF0000;}    
     </style>
 </head>
-<body>
-    <div class="container">
-        <h2>Reģistrācijas Forma</h2>
-        <form action="" method="POST">
-            <div>
-                <label for="first_name">first_name:</label>
-                <input type="text" name="first_name" id="first_name" placeholder="Enter your first_name">
-                <span class="error">* <?php echo $errors["first_name"] ?? '';?></span>
-            </div>
-            <div>
-                <label for="last_name">last_name:</label>
-                <input type="text" name="last_name" id="last_name" placeholder="Enter your first_name">
-                <span class="error">* <?php echo $errors["last_name"] ?? '';?></span>
-            </div>
-            <div>
-                <label for="email">email:</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email">
-                <span class="error">* <?php echo $errors["email"] ?? '';?></span>
-            </div>
-            <div>
-                <label for="password">password:</label>
-                <input type="password" name="password" id="password" placeholder="Enter your password">
-                <span class="error">* <?php echo $errors["password"] ?? '';?></span>
-            </div>
-            <div>
-                <label for="confirm_password">confirm_password:</label>
-                <input type="password" name="confirm_password" id="confirm_password" placeholder="Enter your repeatpassword">
-                <span class="error">* <?php echo $errors["confirm_password"] ?? '';?></span>
-            </div>
-            <div>
-                <button type="submit">Register</button>
-            </div>
+<body class="bg-body">
 
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="custom-card shadow-lg p-5 rounded-4">
+    <h2 class="text-center mb-4 fw-bold text-primary">Create an Account</h2>
+    <form method="POST" action="">
+      <div class="mb-3">
+        <label for="first_name" class="form-label">First Name</label>
+        <input type="text" class="form-control form-control-lg" name="first_name" id="first_name" value="<?= htmlspecialchars($first_name) ?>" placeholder="e.g., John">
+        <div class="error"><?= $errors["first_name"] ?? '' ?></div>
+      </div>
 
+      <div class="mb-3">
+        <label for="last_name" class="form-label">Last Name</label>
+        <input type="text" class="form-control form-control-lg" name="last_name" id="last_name" value="<?= htmlspecialchars($last_name) ?>" placeholder="e.g., Doe">
+        <div class="error"><?= $errors["last_name"] ?? '' ?></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control form-control-lg" name="email" id="email" value="<?= htmlspecialchars($email) ?>" placeholder="name@example.com">
+        <div class="error"><?= $errors["email"] ?? '' ?></div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="At least 8 characters">
+        <div class="error"><?= $errors["password"] ?? '' ?></div>
+      </div>
+
+      <div class="mb-4">
+        <label for="confirm_password" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control form-control-lg" name="confirm_password" id="confirm_password" placeholder="Repeat your password">
+        <div class="error"><?= $errors["confirm_password"] ?? '' ?></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3">Register</button>
+    </form>
+  </div>
+</div>
+
+</body>
 </html>
