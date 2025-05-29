@@ -5,7 +5,7 @@ if (!isset($_SESSION["user_id"])) {
     exit();
 }
 
-include "prakseform.php";
+include "function.php";
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

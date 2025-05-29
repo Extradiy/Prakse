@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "prakseform.php"; 
+include "function.php"; 
 if (!isset($_SESSION["user_id"])) {
     header("Location: login.php");
     exit();
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit_post"])) {
         $stmt->execute();
 
         // Redirect to prevent double submission
-        header("Location: logged.php");
+        header("Location: index.php");
         exit();
     }
 }

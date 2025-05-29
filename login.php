@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-include 'prakseform.php';
+include 'function.php';
 $errors = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $user["password"])) {
                 $_SESSION["user_id"] = $user["user_id"];
                 $_SESSION["username"] = $user["username"];
-                header("Location: logged.php");
+                header("Location: index.php");
                 exit();
             } else {
                 $errors["login"] = "Invalid email or password";
@@ -75,7 +75,8 @@ ob_end_flush();
         <?= $errors["login"] ?? '' ?>
       </div>
 
-      <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3">Login</button>
+      <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3 mb-2">Login</button>
+<a href="register.php" class="btn btn-outline-secondary w-100 btn-lg rounded-3">Register</a>
     </form>
   </div>
 </div>
