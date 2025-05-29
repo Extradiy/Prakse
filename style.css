@@ -1,12 +1,12 @@
-/* style.css */
 
-/* Global body style */
+
+
 body.bg-body {
   background: linear-gradient(135deg, #f0f4ff, #e6e9f0);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Card customization */
+
 .custom-card {
   background-color: #ffffff;
   border-radius: 1.5rem;
@@ -14,14 +14,14 @@ body.bg-body {
   max-width: 500px;
 }
 
-/* Error messages */
+
 .error {
   color: #d9534f;
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
 
-/* Form fields */
+
 .form-label {
   font-weight: 500;
   color: #333;
@@ -32,7 +32,7 @@ input.form-control {
   padding: 0.75rem;
 }
 
-/* Button style */
+
 button.btn-primary {
   background-color: #4a68f3;
   border-color: #4a68f3;
@@ -43,7 +43,7 @@ button.btn-primary:hover {
   border-color: #3a54d2;
 }
 
-/* style.css */
+
 
 body.bg-body {
   background-color: #f8f9fa;

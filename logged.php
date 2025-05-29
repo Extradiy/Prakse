@@ -49,32 +49,60 @@ $posts_result = $stmt->get_result();
 <head>
     <title>Dashboard</title>
 </head>
-<body>
-    <div class="container">
-    <div class="profile-section">
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</h1>
-        <img src="uploads/<?php echo htmlspecialchars($profilePic); ?>" alt="Profile Picture" width="100" height="100">
-        <p><a href="edit_profile.php">Edit Profile</a></p>
-        <p><a href="logout.php">Logout</a></p>
+<body class="bg-body">
+
+<!-- Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container-fluid">
+    <span class="navbar-brand fw-bold text-primary"></span>
+    <div class="d-flex ms-auto">
+      <a href="edit_profile.php" class="btn btn-outline-primary me-2">Edit Profile</a>
+      <a href="logout.php" class="btn btn-outline-danger">Logout</a>
     </div>
+  </div>
+</nav>
 
-    <form action="logged.php" method="POST">
-    <textarea name="post_content" rows="4" cols="50" placeholder="What's on your mind?" required></textarea><br>
-    <button type="submit" name="submit_post">Post</button>
-</form>
+<div class="container-fluid">
+  <div class="row min-vh-100">
 
-    <div class="posts-section">
-        <h2>Recent Posts</h2>
-        <?php while ($post = $posts_result->fetch_assoc()): ?>
-            <div class="post">
-                <div class="author"><?php echo htmlspecialchars($post['username']); ?></div>
-                <div class="time"><?php echo htmlspecialchars($post['created_at']); ?></div>
-                <div class="content"><?php echo nl2br(htmlspecialchars($post['content'])); ?></div>
-            </div>
-        <?php endwhile; ?>
+    
+    <div class="col-md-3 bg-white shadow-sm p-4">
+      <div class="text-center mb-4">
+        <img src="uploads/<?= htmlspecialchars($profilePic); ?>" class="rounded-circle img-fluid mb-2" width="100" height="100" alt="Profile Picture">
+        <h5 class="fw-bold"><?= htmlspecialchars($_SESSION["username"]); ?></h5>
+      </div>
     </div>
 
     
+    <div class="col-md-9 p-5">
+      <div class="mb-4">
+        <h2 class="text-primary">Create a Post</h2>
+        <form action="logged.php" method="POST">
+          <div class="mb-3">
+            <textarea name="post_content" rows="4" class="form-control" placeholder="What's on your mind?" required></textarea>
+          </div>
+          <button type="submit" name="submit_post" class="btn btn-primary">Post</button>
+        </form>
+      </div>
+
+      <hr>
+
+      <div>
+        <h3 class="mb-4">Recent Posts</h3>
+        <?php while ($post = $posts_result->fetch_assoc()): ?>
+          <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title text-primary"><?= htmlspecialchars($post['username']); ?></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><?= htmlspecialchars($post['created_at']); ?></h6>
+              <p class="card-text"><?= nl2br(htmlspecialchars($post['content'])); ?></p>
+            </div>
+          </div>
+        <?php endwhile; ?>
+      </div>
+    </div>
+
+  </div>
 </div>
+
 </body>
 </html>
