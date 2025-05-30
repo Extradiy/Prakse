@@ -126,35 +126,35 @@ if ($result = mysqli_query($conn, "INSERT INTO users (username, last_name, email
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="custom-card shadow-lg p-5 rounded-4">
-    <h2 class="text-center mb-4 fw-bold text-primary">Create an Account</h2>
+    <h2 class="text-center mb-4 fw-bold text-primary">Izveidot Kontu</h2>
     <form method="POST" action="">
       <div class="mb-3">
-        <label for="first_name" class="form-label">First Name</label>
-        <input type="text" class="form-control form-control-lg" name="first_name" id="first_name" value="<?= htmlspecialchars($first_name) ?>" placeholder="e.g., John">
+        <label for="first_name" class="form-label">Vārds</label>
+        <input type="text" class="form-control form-control-lg" name="first_name" id="first_name" value="<?= htmlspecialchars($first_name) ?>" placeholder="Vārds">
         <div class="error"><?= $errors["first_name"] ?? '' ?></div>
       </div>
 
       <div class="mb-3">
-        <label for="last_name" class="form-label">Last Name</label>
-        <input type="text" class="form-control form-control-lg" name="last_name" id="last_name" value="<?= htmlspecialchars($last_name) ?>" placeholder="e.g., Doe">
+        <label for="last_name" class="form-label">Uzvārds</label>
+        <input type="text" class="form-control form-control-lg" name="last_name" id="last_name" value="<?= htmlspecialchars($last_name) ?>" placeholder="Uzvārds">
         <div class="error"><?= $errors["last_name"] ?? '' ?></div>
       </div>
 
       <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
+        <label for="email" class="form-label">Ēpasta Adresse</label>
         <input type="email" class="form-control form-control-lg" name="email" id="email" autocomplete="off" value="<?= htmlspecialchars($email) ?>" placeholder="name@example.com">
         <div class="error"><?= $errors["email"] ?? '' ?></div>
       </div>
 
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control form-control-lg" name="password" id="password" autocomplete="new-password" placeholder="At least 8 characters">
+        <label for="password" class="form-label">Parole</label>
+        <input type="password" class="form-control form-control-lg" name="password" id="password" autocomplete="new-password" placeholder="Jaunā parole">
         <div class="error"><?= $errors["password"] ?? '' ?></div>
       </div>
 
       <div class="mb-4">
-        <label for="confirm_password" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control form-control-lg" name="confirm_password" id="confirm_password" autocomplete="new-password" placeholder="Repeat your password">
+        <label for="confirm_password" class="form-label">Apstiprināt paroli</label>
+        <input type="password" class="form-control form-control-lg" name="confirm_password" id="confirm_password" autocomplete="new-password" placeholder="Apstiprināt Paroli">
         <div class="error"><?= $errors["confirm_password"] ?? '' ?></div>
       </div>
 

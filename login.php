@@ -57,16 +57,16 @@ ob_end_flush();
 
 <div class="container d-flex justify-content-center align-items-center vh-100">
   <div class="custom-card shadow-lg p-5 rounded-4">
-    <h2 class="text-center mb-4 fw-bold text-primary">Login</h2>
+    <h2 class="text-center mb-4 fw-bold text-primary">Pierakstīties</h2>
     <form method="POST" action="">
       <div class="mb-3">
-        <label for="email" class="form-label">Email Address</label>
+        <label for="email" class="form-label">Ēpasta Adresse</label>
         <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="Enter your email" value="<?= htmlspecialchars($email ?? '') ?>">
         <div class="error"><?= $errors["email"] ?? '' ?></div>
       </div>
 
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Parole</label>
         <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Enter your password">
         <div class="error"><?= $errors["password"] ?? '' ?></div>
       </div>
@@ -75,8 +75,8 @@ ob_end_flush();
         <?= $errors["login"] ?? '' ?>
       </div>
 
-      <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3 mb-2">Login</button>
-<a href="register.php" class="btn btn-outline-secondary w-100 btn-lg rounded-3">Register</a>
+      <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3 mb-2">Pieslēgties</button>
+<a href="register.php" class="btn btn-outline-secondary w-100 btn-lg rounded-3">Reģistrēties</a>
     </form>
   </div>
 </div>

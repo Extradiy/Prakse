@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["profile_pic"])) {
                 $stmt->execute();
             }
 
-            header("Location: logged.php");
+            header("Location: index.php");
             exit();
         } else {
             $error = "Failed to upload file.";
@@ -54,18 +54,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["profile_pic"])) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Edit Profile</title>
+    <meta charset="UTF-8">
+    <title>Rediģēt Profilu</title>
 </head>
-<body>
-    <h1>Edit Profile</h1>
-    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
-    <form action="edit_profile.php" method="post" enctype="multipart/form-data">
-        <label for="profile_pic">Upload New Profile Picture:</label>
-        <input type="file" name="profile_pic" id="profile_pic" required>
-        <input type="submit" value="Upload">
-    </form>
-    <p><a href="logged.php">Back to Dashboard</a></p>
+<body class="bg-body">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="custom-card shadow-lg p-5 rounded-4 w-100" style="max-width: 500px;">
+        <h2 class="text-center mb-4 fw-bold text-primary">Rediģēt Profilu</h2>
+
+        <?php if (!empty($error)): ?>
+            <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
+
+        <form action="edit_profile.php" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="profile_pic" class="form-label">Augšupielādēt Jaunu Porfila bildi</label>
+                <input class="form-control" type="file" name="profile_pic" id="profile_pic" accept="image/*" required onchange="previewImage(event)">
+                <img id="preview" class="preview-img rounded-circle border d-block mx-auto mt-3" style="display: none;">
+            </div>
+            <button type="submit" class="btn btn-primary w-100 btn-lg rounded-3">Augšupielādēt</button>
+            <a href="index.php" class="btn btn-outline-secondary w-100 btn-lg rounded-3 mt-2">Atpakaļ uz Index</a>
+        </form>
+    </div>
+</div>
+
+<script>
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+        const output = document.getElementById('preview');
+        output.src = reader.result;
+        output.style.display = 'block';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+}
+</script>
+
 </body>
 </html>

@@ -56,8 +56,8 @@ $posts_result = $stmt->get_result();
   <div class="container-fluid">
     <span class="navbar-brand fw-bold text-primary"></span>
     <div class="d-flex ms-auto">
-      <a href="edit_profile.php" class="btn btn-outline-primary me-2">Edit Profile</a>
-      <a href="logout.php" class="btn btn-outline-danger">Logout</a>
+      <a href="edit_profile.php" class="btn btn-outline-primary me-2">Rediģēt profilu</a>
+      <a href="logout.php" class="btn btn-outline-danger">Atteikties</a>
     </div>
   </div>
 </nav>
@@ -76,19 +76,19 @@ $posts_result = $stmt->get_result();
     
     <div class="col-md-9 p-5">
       <div class="mb-4">
-        <h2 class="text-primary">Create a Post</h2>
-        <form action="logged.php" method="POST">
+        <h2 class="text-primary">Izveidojiet ierakstu</h2>
+        <form action="index.php" method="POST">
           <div class="mb-3">
-            <textarea name="post_content" rows="4" class="form-control" placeholder="What's on your mind?" required></textarea>
+            <textarea name="post_content" rows="4" class="form-control" placeholder="Kas tev padomā?" required></textarea>
           </div>
-          <button type="submit" name="submit_post" class="btn btn-primary">Post</button>
+          <button type="submit" name="submit_post" class="btn btn-primary">Publicēt</button>
         </form>
       </div>
 
       <hr>
 
       <div>
-        <h3 class="mb-4">Recent Posts</h3>
+        <h3 class="mb-4">Jaunākie ieraksti</h3>
         <?php while ($post = $posts_result->fetch_assoc()): ?>
           <div class="card mb-3 shadow-sm">
             <div class="card-body">
