@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
 
-
         if($user = mysqli_fetch_assoc($result)) {
             if (password_verify($password, $user["password"])) {
                 $_SESSION["user_id"] = $user["user_id"];
@@ -38,11 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-
 }
  
-
-
 ob_end_flush();
 ?>
 
@@ -61,13 +57,13 @@ ob_end_flush();
     <form method="POST" action="">
       <div class="mb-3">
         <label for="email" class="form-label">Ēpasta Adresse</label>
-        <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="Enter your email" value="<?= htmlspecialchars($email ?? '') ?>">
+          <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="Ieraksti savu Ēpasta adresi" value="<?= htmlspecialchars($email ?? '') ?>">
         <div class="error"><?= $errors["email"] ?? '' ?></div>
       </div>
 
       <div class="mb-3">
         <label for="password" class="form-label">Parole</label>
-        <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Enter your password">
+        <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="Ieraksti savu paroli">
         <div class="error"><?= $errors["password"] ?? '' ?></div>
       </div>
 
